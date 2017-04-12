@@ -1,0 +1,40 @@
+[{
+    "appDomain": "xfinityhome.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/configuration/scripts/xmpp.js"
+},
+{
+    "appDomain": "cch-demo.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/configuration/scripts/xmpp.js"
+},
+{
+    "appDomain": "cch-internal.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/configuration/scripts/xmpp.js"
+},
+{
+    "appDomain": "cch-release.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/configuration/scripts/xmpp.js"
+},
+{
+    "appDomain": "iristest.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/configuration/scripts/xmpp.js"
+},
+{
+    "appDomain": "iristest.comcast.com",
+    "eventType": "pstnparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/configuration/scripts/xmpp.js"
+},
+{
+    "appDomain": "xfinityvoice.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/configuration/scripts/xmpp.js"
+},
+{
+    "appDomain": "xfinityvoice.comcast.com",
+    "eventType": "pstnparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/configuration/scripts/xmpp.js"
+}]
