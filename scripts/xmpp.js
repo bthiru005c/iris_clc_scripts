@@ -1,12 +1,12 @@
 "use strict";
 
-var config = require('../cloudcode')
-	, logger = require('../lib/logwinston.js')
-	, irisEventTriggers = require('../server/iriseventtriggers')
+var config = require('../../cloudcode')
+	, logger = require('../../lib/logwinston.js')
+	, irisEventTriggers = require('../../server/iriseventtriggers')
 	, request = require('request')
 	, http = require('http')
 	, fetch = require('node-fetch')
-	, cc = require('../cloudcode');
+	, cc = require('../../cloudcode');
 
 function firstXmppParticipantJoined(traceID, payload) {
 	try {
@@ -119,6 +119,6 @@ function firstXmppParticipantJoined(traceID, payload) {
 module.exports = function(scripts_modules) {
 	// the key in this dictionary can be whatever you want
 	// just make sure it won't override other modules
-	scripts_modules['/usr/local/iris_cloud_code/scripts/xmpp.js'] = firstXmppParticipantJoined;
+	scripts_modules['/usr/local/iris_cloud_code/configuration/scripts/xmpp.js'] = firstXmppParticipantJoined;
 };
 
