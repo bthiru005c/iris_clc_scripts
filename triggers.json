@@ -38,3 +38,4 @@
     "eventType": "pstnparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/configuration/scripts/xmpp.js"
 }]
+	
