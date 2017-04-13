@@ -14,6 +14,16 @@
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
 },
 {
+    "appDomain": "cch-stage.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "cch-prod.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+}, 
+{
     "appDomain": "cch-release.comcast.com",
     "eventType": "firstxmppparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
