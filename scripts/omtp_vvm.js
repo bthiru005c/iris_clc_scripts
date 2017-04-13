@@ -7,8 +7,6 @@ var request = require('request')
 	, cc = require('../cloudcode')
 	, http = require('http');
 	
-OnVmEvent(JSON.parse('{"key":"value"}'));
-
 function OnVmEvent(payload) {
 	try {
 		request.post(
