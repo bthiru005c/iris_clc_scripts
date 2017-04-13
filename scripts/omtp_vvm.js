@@ -1,29 +1,30 @@
 "use strict";
 
-var request = require('request')
-	, config = require('../cloudcode')
-	, logger = require('../lib/logwinston.js')
-	, fetch = require('node-fetch')
-	, cc = require('../cloudcode')
-	, http = require('http');
+var logger = require('../lib/logwinston.js')
+	, fetch = require('node-fetch');
 	
-function OnVmEvent(payload) {
+function OnVmEvent(traceID, payload) {
 	try {
-		request.post(
-			'http://96.119.1.103:8080/OmtpNotificationHandler/receive-sms/text/to/20868',
-			{ json:  payload},
-			function (error, response, body) {
-				if (!error && response.statusCode == 200) {
-					logger.info("Response: "+ body);
-				}
-			}
-		);
+		data = JSON.parse(payload.data); 
 	} catch (e) {
-		logger.error("JSON.parse() exception when parsing payload.data : ", payload.data + "; " + e);
+		logger.error("TraceID=" + traceID + ", Message=JSON.parse() exception when parsing payload.data : ", payload.data + "; " + e);
 		return;
 	}
-	
-	logger.info("app_domain=" + payload.app_domain + " event_type=" + payload.event_type + " data=" + payload.data);
+	logger.info("TraceID=" + traceID + ", Trigger=TRUE, Message=app_domain=" + payload.app_domain + " event_type=" + payload.event_type + "data=" + payload.data);
+	fetch('http://96.119.1.103:8080/OmtpNotificationHandler/receive-sms/text/to/20868', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json; charset=utf-8',
+			'Trace-Id': traceID
+		},
+		body: payload
+	})
+	.then (function(res) {
+		logger.info("TraceID=" + traceID + ", Message=Response=" + res.status);
+	})
+	.catch(function(err) {
+		logger.info("TraceID=" + traceID + ", Message=Error in attempt to send request=" + err);
+	});
 };
 
 
