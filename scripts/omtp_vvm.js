@@ -17,7 +17,7 @@ function OnVmEvent(traceID, payload) {
 			'Content-Type': 'application/json; charset=utf-8',
 			'Trace-Id': traceID
 		},
-		body: payload
+		body: JSON.stringify(payload)
 	})
 	.then (function(res) {
 		logger.info("TraceID=" + traceID + ", Message=Response=" + res.status);
