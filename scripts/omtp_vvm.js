@@ -10,7 +10,7 @@ function OnVmEvent(traceID, payload) {
 		logger.error("TraceID=" + traceID + ", Message=JSON.parse() exception when parsing payload.data : ", payload.data + "; " + e);
 		return;
 	}
-	logger.info("TraceID=" + traceID + ", Trigger=TRUE, Message=app_domain=" + payload.app_domain + " event_type=" + payload.event_type + "data=" + payload.data);
+	logger.info("TraceID=" + traceID + ", Trigger=TRUE, Message=app_domain= " + payload.app_domain + " event_type= " + payload.event_type + "data= " + payload.data);
 	fetch('http://96.119.1.103:8080/OmtpNotificationHandler/receive-sms/text/to/20868', {
 		method: 'POST',
 		headers: {
