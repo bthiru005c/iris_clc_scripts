@@ -22,13 +22,13 @@
     "appDomain": "cch-prod.comcast.com",
     "eventType": "firstxmppparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
-}, 
+},
 {
     "appDomain": "cch-release.comcast.com",
     "eventType": "firstxmppparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
 },
- {
+{
     "appDomain": "cch-nightly.comcast.com",
     "eventType": "firstxmppparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
@@ -52,25 +52,4 @@
     "appDomain": "xfinityvoice.comcast.com",
     "eventType": "pstnparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
-},
-{
-    "appDomain": "voicemail-modesto-dev.comcast.com",
-    "eventType": "MBOXUPDATE",
-    "scriptFile": "/usr/local/iris_cloud_code/scripts/omtp_vvm.js"
-},
-{
-    "appDomain": "voicemail-modesto-dev.comcast.com",
-    "eventType": "STATE",
-    "scriptFile": "/usr/local/iris_cloud_code/scripts/omtp_vvm.js"
-},
-{
-    "appDomain": "voicemail-modesto-dev.comcast.com",
-    "eventType": "PINCHANGED",
-    "scriptFile": "/usr/local/iris_cloud_code/scripts/omtp_vvm.js"
-},
-{
-    "appDomain": "voicemail-modesto-dev.comcast.com",
-    "eventType": "GREETINGCHANGED",
-    "scriptFile": "/usr/local/iris_cloud_code/scripts/omtp_vvm.js"
 }]
-	
