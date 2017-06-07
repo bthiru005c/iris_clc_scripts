@@ -34,6 +34,21 @@
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
 },
 {
+    "appDomain": "ahc-release.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "ahc-stage.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "ahc-prod.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
     "appDomain": "iristest.comcast.com",
     "eventType": "firstxmppparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
