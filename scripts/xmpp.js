@@ -10,14 +10,14 @@ var config = require('../cloudcode')
 
 function firstXmppParticipantJoined(traceID, payload) {
 	try {
-		data = JSON.parse(payload.data); 
+		data = JSON.parse(payload.data);
 	} catch (e) {
 		logger.error("TraceID=" + traceID + ", Message=JSON.parse() exception when parsing payload.data : ", payload.data + "; " + e);
 		return;
 	}
-	
+
 	logger.info("TraceID=" + traceID + ", Trigger=TRUE, Message=app_domain=" + payload.app_domain + " event_type=" + payload.event_type + " event_triggered_by=" + data.event_triggered_by + " root_event_room_id=" + data.root_event_room_id);
-	if (payload && data && data.root_event_room_id && data.event_triggered_by)  { 
+	if (payload && data && data.root_event_room_id && data.event_triggered_by)  {
 		var em_options = {
 			url: config.config.event_manager + "/v1/notification/participants/room/" + data.root_event_room_id + "/routingid/" + data.event_triggered_by,
 			headers: {
@@ -29,7 +29,7 @@ function firstXmppParticipantJoined(traceID, payload) {
 			if (!error && response.statusCode == 200) {
 				var em_resp ;
 				try {
-					em_resp = JSON.parse(em_resp_body); 
+					em_resp = JSON.parse(em_resp_body);
 				} catch (e) {
 					logger.error("TraceID=" + traceID + ", Message=JSON.parse() exception when parsing response body: ", em_resp_body);
 					return;
@@ -41,7 +41,7 @@ function firstXmppParticipantJoined(traceID, payload) {
 				// parse payload.root_event_userdata to extract notification JSON blob
 				var root_event_user_data ;
 				try {
-					root_event_user_data = JSON.parse(data.root_event_userdata); 
+					root_event_user_data = JSON.parse(data.root_event_userdata);
 				} catch (e) {
 					logger.error("TraceID=" + traceID + ", Message=JSON.parse() exception when parsing userdata : ", data.root_event_userdata + "; " + e);
 					return;
@@ -54,7 +54,7 @@ function firstXmppParticipantJoined(traceID, payload) {
 				// parse payload.root_event_eventdata to extract rtc_server info
 				var root_event_event_data ;
 				try {
-					root_event_event_data = JSON.parse(data.root_event_eventdata); 
+					root_event_event_data = JSON.parse(data.root_event_eventdata);
 				} catch (e) {
 					logger.error("TraceID=" + traceID + ", Message=JSON.parse() exception when parsing eventdata: ", data.root_event_eventdata + "; " + e);
 					return;
@@ -63,7 +63,7 @@ function firstXmppParticipantJoined(traceID, payload) {
 					logger.error("TraceID=" + traceID + ", Message=No RTC server object available");
 					return
 				}
-				
+
 				for (var i = 0; i < em_resp.to_routing_ids.length; i++) {
 					if (em_resp.to_routing_ids[i].routing_id === em_resp.from_routing_id) {
 						// Do not publish to caller via NM
@@ -71,14 +71,12 @@ function firstXmppParticipantJoined(traceID, payload) {
 					}
 					var topic = encodeURIComponent(root_event_user_data.notification.topic + "/" + em_resp.to_routing_ids[i].routing_id);
 					logger.info("TraceID=" + traceID + ", Message=" + topic);
-					var nm_request_body = { 
+					var nm_request_body = {
 						payload : {
 							trace_id: traceID,
 							routing_id: em_resp.to_routing_ids[i].routing_id,
 							room_id: data.root_event_room_id,
 							rtc_server: root_event_event_data.rtc_server,
-							ws_token: em_resp.to_routing_ids[i].ws_token,
-							ws_token_expiry_time: em_resp.to_routing_ids[i].ws_token_expiry_time,
 							room_token: em_resp.to_routing_ids[i].room_token,
 							room_token_expiry_time: em_resp.to_routing_ids[i].room_token_expiry_time,
 							user_data: data.root_event_userdata
@@ -121,4 +119,3 @@ module.exports = function(scripts_modules) {
 	// just make sure it won't override other modules
 	scripts_modules['/usr/local/iris_cloud_code/scripts/xmpp.js'] = firstXmppParticipantJoined;
 };
-
