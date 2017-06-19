@@ -48,6 +48,16 @@
     "eventType": "firstxmppparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
 },
+ {
+    "appDomain": "testapp.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "testapp.comcast.com",
+    "eventType": "pstnparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
 {
     "appDomain": "iristest.comcast.com",
     "eventType": "firstxmppparticipantjoined",
