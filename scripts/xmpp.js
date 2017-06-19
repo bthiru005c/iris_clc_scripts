@@ -77,6 +77,8 @@ function firstXmppParticipantJoined(traceID, payload) {
 							routing_id: em_resp.to_routing_ids[i].routing_id,
 							room_id: data.root_event_room_id,
 							rtc_server: root_event_event_data.rtc_server,
+							ws_token: em_resp.to_routing_ids[i].ws_token,
+ 							ws_token_expiry_time: em_resp.to_routing_ids[i].ws_token_expiry_time,							
 							room_token: em_resp.to_routing_ids[i].room_token,
 							room_token_expiry_time: em_resp.to_routing_ids[i].room_token_expiry_time,
 							user_data: data.root_event_userdata
