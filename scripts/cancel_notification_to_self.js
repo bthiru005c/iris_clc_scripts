@@ -73,5 +73,5 @@ function cancelNotificationToSelf(traceID, payload) {
 module.exports = function(scripts_modules) {
 	// the key in this dictionary can be whatever you want
 	// just make sure it won't override other modules
-	scripts_modules['/usr/local/iris_cloud_code/scripts/cancel_notification_to_caller.js'] = cancelNotificationToCaller;
+	scripts_modules['/usr/local/iris_cloud_code/scripts/cancel_notification_to_self.js'] = cancelNotificationToSelf;
 };
