@@ -8,7 +8,7 @@ var config = require('../cloudcode')
 	, fetch = require('node-fetch')
 	, cc = require('../cloudcode');
 
-function firstXmppParticipantJoined(traceID, payload) {
+function cancelNotificationToCallees(traceID, payload) {
 	try {
 		data = JSON.parse(payload.data);
 	} catch (e) {
@@ -73,16 +73,10 @@ function firstXmppParticipantJoined(traceID, payload) {
 					logger.info("TraceID=" + traceID + ", Message=" + topic);
 					var nm_request_body = {
 						payload : {
-							type: "notify",
+							type: "cancel",
 							trace_id: traceID,
 							routing_id: em_resp.to_routing_ids[i].routing_id,
 							room_id: data.root_event_room_id,
-							rtc_server: root_event_event_data.rtc_server,
-							ws_token: em_resp.to_routing_ids[i].ws_token,
- 							ws_token_expiry_time: em_resp.to_routing_ids[i].ws_token_expiry_time,							
-							room_token: em_resp.to_routing_ids[i].room_token,
-							room_token_expiry_time: em_resp.to_routing_ids[i].room_token_expiry_time,
-							user_data: data.root_event_userdata
 						}
 					}
 					// publish to notification manager
@@ -120,5 +114,5 @@ function firstXmppParticipantJoined(traceID, payload) {
 module.exports = function(scripts_modules) {
 	// the key in this dictionary can be whatever you want
 	// just make sure it won't override other modules
-	scripts_modules['/usr/local/iris_cloud_code/scripts/xmpp.js'] = firstXmppParticipantJoined;
+	scripts_modules['/usr/local/iris_cloud_code/scripts/cancel_notification_to_callees.js'] = cancelNotificationToCallees;
 };
