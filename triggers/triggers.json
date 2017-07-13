@@ -122,4 +122,34 @@
     "appDomain": "voicemail-modesto-dev.comcast.com",
     "eventType": "GREETINGCHANGED",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/omtp_vvm.js"
+},
+{
+    "appDomain": "keystnfrst-prod.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "keystnfrst-stage.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "keystnfrst-release.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "keystnfrst-internal.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "keystnfrst-nightly.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "keystnfrst-debug.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
 }]
