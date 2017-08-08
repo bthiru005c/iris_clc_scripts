@@ -1,6 +1,6 @@
 [{
     "appDomain": "xfinityhome.comcast.com",
-    "eventType": "firstxmppparticipantjoined",
+    "eventType": "videocall",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
 },
 {
