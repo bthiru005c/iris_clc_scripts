@@ -60,13 +60,18 @@
 },
  {
     "appDomain": "highwire.comcast.com",
-    "eventType": "firstxmppparticipantjoined",
+    "eventType": "videocall",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
 },
 {
     "appDomain": "highwire.comcast.com",
     "eventType": "pstnparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+ {
+    "appDomain": "highwire.comcast.com",
+    "eventType": "pstncallerleftbeforecalleesjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_callees.js"
 },
 {
     "appDomain": "iristest.comcast.com",
