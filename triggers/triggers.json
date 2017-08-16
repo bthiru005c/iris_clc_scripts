@@ -98,6 +98,31 @@
     "eventType": "xmppparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_self.js"
 },
+ {
+    "appDomain": "phonewire.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "phonewire.comcast.com",
+    "eventType": "pstnparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "phonewire.comcast.com",
+    "eventType": "xmppcallerleftbeforecalleesjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_callees.js"
+},
+{
+    "appDomain": "phonewire.comcast.com",
+    "eventType": "pstncallerleftbeforecalleesjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_callees.js"
+},
+{
+    "appDomain": "phonewire.comcast.com",
+    "eventType": "xmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_self.js"
+},
 {
     "appDomain": "xfinityvoice.comcast.com",
     "eventType": "firstxmppparticipantjoined",
