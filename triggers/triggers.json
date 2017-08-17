@@ -153,6 +153,26 @@
     "eventType": "GREETINGCHANGED",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/omtp_vvm.js"
 },
+ {
+    "appDomain": "vm-modesto-prd.comcast.com",
+    "eventType": "MBOXUPDATE",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/omtp_vvm.js"
+},
+{
+    "appDomain": "vm-modesto-prd.comcast.com",
+    "eventType": "STATE",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/omtp_vvm.js"
+},
+{
+    "appDomain": "vm-modesto-prd.comcast.com",
+    "eventType": "PINCHANGED",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/omtp_vvm.js"
+},
+{
+    "appDomain": "vm-modesto-prd.comcast.com",
+    "eventType": "GREETINGCHANGED",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/omtp_vvm.js"
+},
 {
     "appDomain": "keystnfrst-prod.comcast.com",
     "eventType": "firstxmppparticipantjoined",
