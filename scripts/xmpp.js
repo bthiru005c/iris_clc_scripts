@@ -21,7 +21,7 @@ function firstXmppParticipantJoined(traceID, payload) {
 		var em_options = {
 			url: config.config.event_manager + "/v1/notification/participants/room/" + data.root_event_room_id + "/routingid/" + data.event_triggered_by,
 			headers: {
-    		'Authorization': "Bearer " + cc.iris_server_jwt,
+    		'Authorization': "Bearer " + cc.iris_core_jwt,
     		'Trace-Id': traceID
 			}
 		};
@@ -79,7 +79,7 @@ function firstXmppParticipantJoined(traceID, payload) {
 							room_id: data.root_event_room_id,
 							rtc_server: root_event_event_data.rtc_server,
 							ws_token: em_resp.to_routing_ids[i].ws_token,
- 							ws_token_expiry_time: em_resp.to_routing_ids[i].ws_token_expiry_time,							
+ 							ws_token_expiry_time: em_resp.to_routing_ids[i].ws_token_expiry_time,
 							room_token: em_resp.to_routing_ids[i].room_token,
 							room_token_expiry_time: em_resp.to_routing_ids[i].room_token_expiry_time,
 							user_data: data.root_event_userdata
@@ -90,7 +90,7 @@ function firstXmppParticipantJoined(traceID, payload) {
 						method: 'POST',
 			      headers: {
 							'Content-Type': 'application/json; charset=utf-8',
-							'Authorization': "Bearer " + cc.iris_server_jwt,
+							'Authorization': "Bearer " + cc.iris_core_jwt,
 							'Trace-Id': traceID
 						},
 						body: JSON.stringify(nm_request_body)
