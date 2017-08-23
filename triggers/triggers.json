@@ -58,6 +58,71 @@
     "eventType": "pstnparticipantjoined",
     "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
 },
+{
+    "appDomain": "testapp.comcast.com",
+    "eventType": "pstncallerleftbeforecalleesjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_callees.js" 
+},
+{
+    "appDomain": "testapp.comcast.com",
+    "eventType": "xmppcallerleftbeforecalleesjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_callees.js"
+},
+{
+    "appDomain": "testapp.comcast.com",
+    "eventType": "xmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_self.js" 
+},
+{
+    "appDomain": "cox-qa.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "cox-qa.comcast.com",
+    "eventType": "pstnparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "cox-qa.comcast.com",
+    "eventType": "pstncallerleftbeforecalleesjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_callees.js" 
+},
+{
+    "appDomain": "cox-qa.comcast.com",
+    "eventType": "xmppcallerleftbeforecalleesjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_callees.js"
+},
+{
+    "appDomain": "cox-qa.comcast.com",
+    "eventType": "xmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_self.js" 
+},
+{
+    "appDomain": "cox.comcast.com",
+    "eventType": "firstxmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "cox.comcast.com",
+    "eventType": "pstnparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/xmpp.js"
+},
+{
+    "appDomain": "cox.comcast.com",
+    "eventType": "pstncallerleftbeforecalleesjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_callees.js" 
+},
+{
+    "appDomain": "cox.comcast.com",
+    "eventType": "xmppcallerleftbeforecalleesjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_callees.js"
+},
+{
+    "appDomain": "cox.comcast.com",
+    "eventType": "xmppparticipantjoined",
+    "scriptFile": "/usr/local/iris_cloud_code/scripts/cancel_notification_to_self.js" 
+},
  {
     "appDomain": "highwire.comcast.com",
     "eventType": "videocall",
