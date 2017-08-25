@@ -12,11 +12,11 @@ function cancelNotificationToCallees(traceID, payload) {
 	try {
 		data = JSON.parse(payload.data);
 	} catch (e) {
-		logger.error("TraceID=" + traceID + ", Message=JSON.parse() exception when parsing payload.data : ", payload.data + "; " + e);
+		logger.error("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=JSON.parse() exception when parsing payload.data : ", payload.data + "; " + e);
 		return;
 	}
 
-	logger.info("TraceID=" + traceID + ", Trigger=TRUE, Message=app_domain=" + payload.app_domain + " event_type=" + payload.event_type + " event_triggered_by=" + data.event_triggered_by + " root_event_room_id=" + data.root_event_room_id);
+	logger.info("type=cancelNotificationToCallees, TraceID=" + traceID + ", Trigger=TRUE, Message=app_domain=" + payload.app_domain + " event_type=" + payload.event_type + " event_triggered_by=" + data.event_triggered_by + " root_event_room_id=" + data.root_event_room_id);
 	if (payload && data && data.root_event_room_id && data.event_triggered_by)  {
 		var em_options = {
 			url: config.config.event_manager + "/v1/notification/participants/room/" + data.root_event_room_id + "/routingid/" + data.event_triggered_by,
@@ -31,36 +31,36 @@ function cancelNotificationToCallees(traceID, payload) {
 				try {
 					em_resp = JSON.parse(em_resp_body);
 				} catch (e) {
-					logger.error("TraceID=" + traceID + ", Message=JSON.parse() exception when parsing response body: ", em_resp_body);
+					logger.error("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=JSON.parse() exception when parsing response body: ", em_resp_body);
 					return;
 				}
 				if ( (!em_resp.to_routing_ids) || (!em_resp.to_routing_ids instanceof Array) ) {
-					logger.error("TraceID=" + traceID + ", Message=Invalid Payload Received");
+					logger.error("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=Invalid Payload Received");
 					return
 				}
 				// parse payload.root_event_userdata to extract notification JSON blob
 				var root_event_user_data ;
 				try {
-					root_event_user_data = JSON.parse(data.root_event_userdata);
+					root_event_user_data = JSON.parse(this.data.root_event_userdata);
 				} catch (e) {
-					logger.error("TraceID=" + traceID + ", Message=JSON.parse() exception when parsing userdata : ", data.root_event_userdata + "; " + e);
+					logger.error("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=JSON.parse() exception when parsing userdata : ", this.data.root_event_userdata + "; " + e);
 					return;
 				}
 				if (!root_event_user_data.notification) {
-					logger.info("TraceID=" + traceID + ", Message=No notification object available");
+					logger.info("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=No notification object available");
 					return
 				}
 
 				// parse payload.root_event_eventdata to extract rtc_server info
 				var root_event_event_data ;
 				try {
-					root_event_event_data = JSON.parse(data.root_event_eventdata);
+					root_event_event_data = JSON.parse(this.data.root_event_eventdata);
 				} catch (e) {
-					logger.error("TraceID=" + traceID + ", Message=JSON.parse() exception when parsing eventdata: ", data.root_event_eventdata + "; " + e);
+					logger.error("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=JSON.parse() exception when parsing eventdata: ", this.data.root_event_eventdata + "; " + e);
 					return;
 				}
 				if (!root_event_event_data.rtc_server) {
-					logger.error("TraceID=" + traceID + ", Message=No RTC server object available");
+					logger.error("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=No RTC server object available");
 					return
 				}
 
@@ -70,13 +70,13 @@ function cancelNotificationToCallees(traceID, payload) {
 						continue
 					}
 					var topic = encodeURIComponent(root_event_user_data.notification.topic + "/" + em_resp.to_routing_ids[i].routing_id);
-					logger.info("TraceID=" + traceID + ", Message=" + topic);
+					logger.info("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=" + topic + " RoomID=" + this.data.root_event_room_id);
 					var nm_request_body = {
 						payload : {
 							type: "cancel",
 							trace_id: traceID,
 							routing_id: em_resp.to_routing_ids[i].routing_id,
-							room_id: data.root_event_room_id,
+							room_id: this.data.root_event_room_id,
 						}
 					}
 					// publish to notification manager
@@ -90,24 +90,24 @@ function cancelNotificationToCallees(traceID, payload) {
 						body: JSON.stringify(nm_request_body)
 					})
 					.then (function(res) {
-						logger.info("TraceID=" + traceID + ", Message=Response from Notification Manager=" + res.status);
+						logger.info("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=Response from Notification Manager=" + res.status);
 					})
 					.catch(function(err) {
-						logger.info("TraceID=" + traceID + ", Message=Error in attempt to send request to Notification Manager=" + err);
+						logger.info("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=Error in attempt to send request to Notification Manager=" + err);
 					});
 				}
 			} else {
 				if (error) {
-					logger.error("TraceID=" + traceID + ", Message=" + error);
+					logger.error("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=" + error);
 				} else {
 					if ( (response.statusCode > 200) && (response.statusCode < 500) ) {
-						logger.error("TraceID=" + traceID + ", Message=Response from Event Manager=" + response.statusCode);
+						logger.error("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=Response from Event Manager=" + response.statusCode);
 					} else {
-						logger.error("TraceID=" + traceID + ", Message=status code =" + response.statusCode);
+						logger.error("type=cancelNotificationToCallees, TraceID=" + traceID + ", Message=status code =" + response.statusCode);
 					}
 				}
 			}
-		});
+		}.bind({data: data}));
 	}
 };
 
