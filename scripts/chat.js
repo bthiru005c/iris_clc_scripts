@@ -66,6 +66,7 @@ function chatNotification(traceID, payload) {
 						payload : {
 							type: "chat",
 							trace_id: traceID,
+							src_rid: data.event_triggered_by,
 							routing_id: em_resp.to_routing_ids[i].routing_id,
 							room_id: this.data.root_event_room_id,
 							user_data: this.data.root_event_userdata
